@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: gabriel-simonetti/gamelog-gatsby
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'game'
+    label: 'Game'
+    folder: 'content/game'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - label: 'Featured Image'
+        name: 'main_image'
+        widget: 'image'
+        media_library:
+          config:
+            multiple: false
+      - { label: 'Score', name: 'score', widget: 'number', min: 0, max: 5, step: .5 }
+      - { label: 'Review', name: 'body', widget: 'markdown' }
+      - label: 'Additional Images'
+        name: 'images'
+        widget: 'image'
+        media_library:
+          config:
+            multiple: true
